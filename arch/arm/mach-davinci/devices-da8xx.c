@@ -751,7 +751,7 @@ void __iomem * __init da8xx_get_mem_ctlr(void)
 
 	da8xx_ddr2_ctlr_base = ioremap(DA8XX_DDR2_CTL_BASE, SZ_32K);
 	if (!da8xx_ddr2_ctlr_base)
-		pr_warning("%s: Unable to map DDR2 controller",	__func__);
+		pr_warn("%s: Unable to map DDR2 controller", __func__);
 
 	return da8xx_ddr2_ctlr_base;
 }
@@ -876,8 +876,8 @@ int __init da8xx_register_spi(int instance, const struct spi_board_info *info,
 
 	ret = spi_register_board_info(info, len);
 	if (ret)
-		pr_warning("%s: failed to register board info for spi %d :"
-			   " %d\n", __func__, instance, ret);
+		pr_warn("%s: failed to register board info for spi %d : %d\n",
+			__func__, instance, ret);
 
 	da8xx_spi_pdata[instance].num_chipselect = len;
 
