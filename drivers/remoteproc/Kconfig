@@ -41,4 +41,27 @@ config STE_MODEM_RPROC
 	  This can be either built-in or a loadable module.
 	  If unsure say N.
 
+config DAVINCI_REMOTEPROC
+	tristate "DaVinci DA850/OMAPL138 remoteproc support (EXPERIMENTAL)"
+	depends on ARCH_DAVINCI_DA850
+	select REMOTEPROC
+	select RPMSG
+	select FW_LOADER
+	select CMA
+	default n
+	help
+	  Say y here to support DaVinci DA850/OMAPL138 remote processors
+	  via the remote processor framework.
+
+	  You want to say y here in order to enable AMP
+	  use-cases to run on your platform (multimedia codecs are
+	  offloaded to remote DSP processors using this framework).
+
+	  It's safe to say n here if you're not interested in multimedia
+	  offloading or just want a bare minimum kernel.
+
+	  This feature is considered EXPERIMENTAL, due to it not having
+	  any previous exposure to the general public and therefore
+	  limited developer-based testing.
+
 endmenu
